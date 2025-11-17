@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekspose Pengabdian - Literasi Qur'ani</title>
+    
+    <style>
+        /* 1. Pengaturan Dasar & Tipografi */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9; /* Latar belakang netral */
+            color: #333; /* Teks utama, kontras tinggi */
+        }
+
+        /* 2. Kontainer Aplikasi Utama */
+        #app-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh; /* Memenuhi seluruh tinggi layar */
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        /* 3. Area Konten "Slide" */
+        main {
+            flex-grow: 1; /* Mengisi ruang yang tersisa */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4vw; /* Padding responsif */
+            position: relative;
+        }
+
+        .slide {
+            display: none; /* Semua slide disembunyikan secara default */
+            width: 100%;
+            max-width: 1200px; /* Lebar maksimum konten */
+            animation: fadeIn 0.5s ease;
+        }
+
+        .slide.active {
+            display: block; /* Hanya slide aktif yang tampil */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 4. Penataan Teks (Optimal untuk Proyektor) */
+        .slide h1 {
+            font-size: 3rem; /* Sangat besar */
+            color: #004080; /* Biru tua profesional */
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .slide h2 {
+            font-size: 2.5rem; /* Besar */
+            color: #0056b3; /* Biru */
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .slide h3 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .slide p, .slide li {
+            font-size: 1.75rem; /* Teks konten besar */
+            margin-bottom: 1.25rem;
+            color: #222; /* Warna teks sedikit lebih gelap */
+        }
+        
+        .slide ul {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+
+        /* Slide Judul (Khusus) */
+        #slide-title {
+            text-align: center;
+        }
+        #slide-title p {
+            font-size: 2rem;
+            font-style: italic;
+            color: #555;
+            margin-top: 1rem;
+        }
+
+        /* 5. Footer & Navigasi */
+        footer {
+            flex-shrink: 0; /* Mencegah footer menyusut */
+            padding: 1.5rem 4vw;
+            background-color: #ffffff;
+            border-top: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #slide-counter {
+            font-size: 1.25rem;
+            color: #777;
+            font-weight: 500;
+        }
+
+        .nav-buttons button {
+            font-size: 1.25rem;
+            font-weight: bold;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #0056b3;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-left: 1rem;
+        }
+
+        .nav-buttons button:hover {
+            background-color: #004080;
+        }
+
+        .nav-buttons button:disabled {
+            background-color: #c0c0c0; /* Abu-abu nonaktif */
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app-container">
+        
+        <main>
+
+            <section class="slide active" id="slide-title">
+                <h1>Peningkatan Literasi Qur’ani Melalui Pendampingan Berbasis Kurikulum Spiral, Metode Halaqah, dan Sorogan di Lingkungan Masjid</h1>
+                <p>Abdus Syakur, Akh. Wildan Fawaid, Ahmad Agil Hamdani</p>
+                <p>Program Studi Magister PAI Pascasarjana UIN Madura</p>
+            </section>
+
+            <section class="slide">
+                <h2>Abstrak</h2>
+                <p>Penelitian ini mendeskripsikan implementasi dan efektivitas Program Pendampingan Baca-Tulis Al-Qur’an (BTQ) di Masjid Hidayatun Nasyiin, Pamekasan.</p>
+                <ul>
+                    <li><b>Metode:</b> Pendampingan partisipatif selama satu bulan.</li>
+                    <li><b>Pendekatan:</b> Halaqah klasikal dengan model Kurikulum Spiral (tiga tingkatan: dasar, menengah, lanjut).</li>
+                    <li><b>Hasil:</b> Menunjukkan peningkatan signifikan dalam kemampuan BTQ dan motivasi belajar peserta.</li>
+                    <li><b>Rekomendasi:</b> Program dilanjutkan mandiri oleh takmir masjid.</li>
+                </ul>
+            </section>
+
+            <section class="slide">
+                <h2>Pendahuluan: Latar Belakang</h2>
+                <p>Masjid Hidayatun Nasyiin adalah pusat kegiatan, namun menghadapi tantangan regenerasi.</p>
+                <ul>
+                    <li><b>Masalah:</b> Anak-anak dan remaja di sekitar masjid masih kesulitan menulis huruf Arab dan membaca Al-Qur’an dengan lancar.</li>
+                    <li><b>Faktor:</b> Keterbatasan program terstruktur dan kurangnya penerapan metode teruji.</li>
+                    <li><b>Tujuan Program:</b> (1) Membantu peserta menguasai BTQ; (2) Mengembangkan desain pembelajaran sistematis; (3) Menyelenggarakan program BTQ yang menarik & berkelanjutan.</li>
+                </ul>
+            </section>
+
+            <section class="slide">
+                <h2>Metode Pelaksanaan</h2>
+                <ul>
+                    <li><b>Pendekatan:</b> Pendampingan partisipatif (1 bulan, 50 peserta: TK, SD, SMP).</li>
+                    <li><b>Model:</b> Kurikulum Spiral (D. Ausubel & J. Bruner) - konsep inti diulang dengan kompleksitas meningkat.</li>
+                    <li><b>Tahapan:</b>
+                        <ol>
+                            <li><b>Persiapan:</b> Sosialisasi, asesmen awal (placement test) untuk 3 level.</li>
+                            <li><b>Pelaksanaan:</b> Halaqah (5 grup), Sesi Baca & Menulis, Halaqah Remaja Qur’ani.</li>
+                            <li><b>Evaluasi:</b> Formatif (harian) dan Sumatif (ujian akhir pekan ke-5).</li>
+                        </ol>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="slide">
+                <h2>Hasil Pelaksanaan Program</h2>
+                <ol>
+                    <li><b>Peningkatan Kompetensi BTQ:</b>
+                        <ul>
+                            <li><b>90%</b> (45 dari 50 peserta) menunjukkan peningkatan skor signifikan.</li>
+                            <li><b>80%</b> (tingkat dasar) berhasil menguasai makharijul huruf dengan baik.</li>
+                        </ul>
+                    </li>
+                    <li><b>Peningkatan Partisipasi dan Motivasi Belajar:</b>
+                        <ul>
+                            <li>Atmosfer pembelajaran di masjid berubah menjadi lebih antusias dan disiplin.</li>
+                        </ul>
+                    </li>
+                    <li><b>Terbentuknya Kurikulum Masjid yang Sistematis:</b>
+                        <ul>
+                            <li>Masjid kini memiliki panduan kurikulum spiral dan RPP untuk melanjutkan program.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+            
+            <section class="slide">
+                <h2>Pembahasan (Tinjauan Teori Pembelajaran)</h2>
+                <p>Keberhasilan program terletak pada penerapan <b>pendekatan eklektik</b> yang adaptif:</p>
+                <ul>
+                    <li><b>Behavioristik (Skinner):</b> Metode *talaqqi* dan *tikrar* untuk kelancaran bacaan.</li>
+                    <li><b>Kognitif (Ausubel & Bruner):</b> Pembelajaran bermakna, kaitan pengetahuan lama dan baru.</li>
+                    <li><b>Konstruktivisme Sosial (Vygotsky):</b> Model *halaqah* mendorong *peer learning* & diskusi (tadabbur).</li>
+                    <li><b>Humanistik (Maslow/Rogers):</b> Fokus pada "will"  melalui motivasi, kisah Qur’ani, dan penghargaan untuk menumbuhkan motivasi intrinsik.</li>
+                </ul>
+            </section>
+
+            <section class="slide">
+                <h2>Simpulan dan Saran</h2>
+                <h3>Simpulan</h3>
+                <p>Program pendampingan BTQ berbasis halaqah dan kurikulum spiral telah berhasil meningkatkan kemampuan literasi Qur’ani serta motivasi belajar anak-anak dan remaja.</p>
+                
+                <h3>Saran</h3>
+                <p>Disarankan agar Takmir Masjid Hidayatun Nasyiin, dengan dukungan orang tua dan masyarakat, dapat melanjutkan program ini secara mandiri menggunakan kurikulum dan modul yang telah dikembangkan.</p>
+            </section>
+
+        </main>
+
+        <footer>
+            <span id="slide-counter"></span>
+            <div class="nav-buttons">
+                <button id="prev-btn">Sebelumnya</button>
+                <button id="next-btn">Berikutnya</button>
+            </div>
+        </footer>
+
+    </div>
+
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Ambil Elemen DOM
+            const slides = document.querySelectorAll(".slide");
+            const prevBtn = document.getElementById("prev-btn");
+            const nextBtn = document.getElementById("next-btn");
+            const slideCounter = document.getElementById("slide-counter");
+            
+            let currentSlide = 0;
+            // Pastikan totalSlides dihitung dengan benar
+            const totalSlides = slides.length; 
+
+            // 2. Fungsi untuk Menampilkan Slide
+            function showSlide(index) {
+                // Sembunyikan semua slide
+                slides.forEach(slide => {
+                    slide.classList.remove("active");
+                });
+                
+                // Tampilkan slide yang dipilih
+                slides[index].classList.add("active");
+                
+                // Perbarui status tombol navigasi
+                // Tombol 'Sebelumnya' nonaktif HANYA di slide pertama (index 0)
+                prevBtn.disabled = (index === 0);
+                
+                // Tombol 'Berikutnya' nonaktif HANYA di slide terakhir (index totalSlides - 1)
+                // Ini adalah perbaikan utamanya, memastikan perbandingan logikanya tepat.
+                nextBtn.disabled = (index === totalSlides - 1);
+                
+                // Perbarui penghitung slide
+                slideCounter.textContent = `Halaman ${index + 1} dari ${totalSlides}`;
+            }
+
+            // 3. Tambahkan Event Listener ke Tombol 'Berikutnya'
+            nextBtn.addEventListener("click", function() {
+                // Cek apakah slide saat ini BELUM merupakan slide terakhir
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    showSlide(currentSlide);
+                }
+            });
+
+            // 4. Tambahkan Event Listener ke Tombol 'Sebelumnya'
+            prevBtn.addEventListener("click", function() {
+                // Cek apakah slide saat ini BUKAN slide pertama
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    showSlide(currentSlide);
+                }
+            });
+
+            // 5. Tampilkan slide pertama saat dimuat
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>
